@@ -1,0 +1,39 @@
+{
+  "name": "psybaron/cascms-blog-module",
+  "type": "asgard-module",
+  "description": "A blog module for CasCMS.",
+  "keywords": [
+    "blog",
+    "cascms",
+    "journal"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marko Aleksic",
+      "email": "info@carniadesign.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "composer/installers": "~1.0"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/nWidart/modules"
+    }
+  ],
+  "scripts": {
+    "post-install-cmd": [
+      "php artisan module:migrate Blog",
+      "php artisan asgard:publish:module Blog"
+    ],
+    "post-update-cmd": [
+      "php artisan module:migrate Blog",
+      "php artisan asgard:publish:module Blog"
+    ]
+  },
+  "minimum-stability": "dev"
+}
