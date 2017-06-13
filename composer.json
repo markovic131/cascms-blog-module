@@ -1,20 +1,25 @@
 {
   "name": "psybaron/cascms-blog-module",
   "type": "asgard-module",
-  "description": "A blog module for CasCMS.",
+  "description": "A blog module for AsgardCMS.",
   "keywords": [
     "blog",
-    "cascms",
+    "asgardcms",
     "journal"
   ],
   "license": "MIT",
   "authors": [
     {
-      "name": "Marko Aleksic",
-      "email": "info@carniadesign.com",
+      "name": "Nicolas Widart",
+      "email": "info@asgardcms.com",
       "role": "Developer"
     }
   ],
+  "support": {
+    "email": "support@asgardcms.com",
+    "issues": "https://github.com/AsgardCms/Blog/issues",
+    "source": "https://github.com/AsgardCms/Blog"
+  },
   "require": {
     "php": ">=5.4",
     "composer/installers": "~1.0"

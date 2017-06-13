@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('styles')
-{!! Theme::script('js/vendor/ckeditor/ckeditor.js') !!}
 <link href="{{{ Module::asset('blog:css/selectize.css') }}}" rel="stylesheet" type="text/css" />
 @stop
 
@@ -31,6 +30,11 @@
                         @include('blog::admin.posts.partials.edit-fields', ['lang' => $locale])
                     </div>
                 <?php endforeach; ?>
+                <?php if (config('asgard.blog.config.post.partials.normal.edit') !== []): ?>
+                    <?php foreach (config('asgard.blog.config.post.partials.normal.edit') as $partial): ?>
+                        @include($partial)
+                    <?php endforeach; ?>
+                <?php endif; ?>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.update') }}</button>
                     <button class="btn btn-default btn-flat" name="button" type="reset">{{ trans('core::core.button.reset') }}</button>

@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('styles')
-{!! Theme::script('js/vendor/ckeditor/ckeditor.js') !!}
 <link href="{{{ Module::asset('blog:css/selectize.css') }}}" rel="stylesheet" type="text/css" />
 @stop
 
@@ -30,6 +29,11 @@
                         @include('blog::admin.posts.partials.create-fields', ['lang' => $locale])
                     </div>
                 <?php endforeach; ?>
+                <?php if (config('asgard.blog.config.post.partials.normal.create') !== []): ?>
+                    <?php foreach (config('asgard.blog.config.post.partials.normal.create') as $partial): ?>
+                    @include($partial)
+                    <?php endforeach; ?>
+                <?php endif; ?>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary btn-flat">{{ trans('blog::post.button.create post') }}</button>
                     <button class="btn btn-default btn-flat" name="button" type="reset">{{ trans('core::core.button.reset') }}</button>
@@ -63,6 +67,9 @@
                    <select name="tags[]" id="tags" class="input-tags" multiple></select>
                    {!! $errors->first("tags", '<span class="help-block">:message</span>') !!}
                 </div>
+                @include('media::admin.fields.new-file-link-single', [
+                    'zone' => 'thumbnail'
+                ])
             </div>
         </div>
     </div>
